@@ -35,11 +35,11 @@ const Footer = () => {
                         </li>
                         <li>
                             <Mail size={18} />
-                            <span>info@grupomegamerica.com</span>
+                            <span>ventas@grupomegamerica.com</span>
                         </li>
                         <li>
                             <Phone size={18} />
-                            <span>+58 (245) XXX-XXXX</span>
+                            <span>+58 (412) 440-5951</span>
                         </li>
                     </ul>
                 </div>

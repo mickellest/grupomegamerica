@@ -47,7 +47,7 @@ const Contact = () => {
                                     <div className="info-icon"><Mail size={24} /></div>
                                     <div>
                                         <h4>Correo Electrónico</h4>
-                                        <p>info@grupomegamerica.com <br /> ventas@grupomegamerica.com</p>
+                                        <p>ventas@grupomegamerica.com</p>
                                     </div>
                                 </div>
 
@@ -55,7 +55,7 @@ const Contact = () => {
                                     <div className="info-icon"><Phone size={24} /></div>
                                     <div>
                                         <h4>Líneas Telefónicas</h4>
-                                        <p>+58 (245) XXX-XXXX</p>
+                                        <p>+58 (412) 440-5951</p>
                                     </div>
                                 </div>
                             </div>
