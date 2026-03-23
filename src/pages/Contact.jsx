@@ -75,20 +75,32 @@ const Contact = () => {
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
                             <h2>Envíenos un Mensaje</h2>
-                            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                            <form className="contact-form" onSubmit={(e) => {
+                                e.preventDefault();
+                                const form = e.target;
+                                const name = form.name.value;
+                                const email = form.email.value;
+                                const subject = form.subject.options[form.subject.selectedIndex].text;
+                                const message = form.message.value;
+
+                                const bodyTexto = `Nombre o Razón Social: ${name}\nCorreo de contacto: ${email}\n\nMensaje:\n${message}`;
+                                const mailtoLink = `mailto:ventas@grupomegamerica.com?subject=${encodeURIComponent(`Contacto Web - ${subject}`)}&body=${encodeURIComponent(bodyTexto)}`;
+                                
+                                window.location.href = mailtoLink;
+                            }}>
                                 <div className="form-group">
                                     <label htmlFor="name">Nombre o Razón Social *</label>
-                                    <input type="text" id="name" required placeholder="Ej. Constructora ABC" />
+                                    <input type="text" id="name" name="name" required placeholder="Ej. Constructora ABC" />
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="email">Correo Electrónico *</label>
-                                    <input type="email" id="email" required placeholder="correo@empresa.com" />
+                                    <input type="email" id="email" name="email" required placeholder="correo@empresa.com" />
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="subject">Asunto</label>
-                                    <select id="subject">
+                                    <select id="subject" name="subject">
                                         <option value="">Seleccione un asunto...</option>
                                         <option value="cotizacion">Cotización de Materiales</option>
                                         <option value="proyecto_ipc">Proyectos IPC / Construcción</option>
@@ -99,7 +111,7 @@ const Contact = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="message">Mensaje *</label>
-                                    <textarea id="message" rows="5" required placeholder="Describa su requerimiento o proyecto con la mayor cantidad de detalles posible..."></textarea>
+                                    <textarea id="message" name="message" rows="5" required placeholder="Describa su requerimiento o proyecto con la mayor cantidad de detalles posible..."></textarea>
                                 </div>
 
                                 <button type="submit" className="button-primary submit-btn">
